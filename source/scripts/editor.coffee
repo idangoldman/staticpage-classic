@@ -1,8 +1,12 @@
 import Modal from './modal'
 
 export default class Editor
-  @add: ->
-    new Modal()
+  @add: (componentName) ->
+    new Modal({
+      title: "Add #{componentName} Component",
+      content: '',
+      button_text: 'Save'
+    })
   @edit: ->
     console.log 'editor_edit'
   @move_up: ->

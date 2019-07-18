@@ -1,4 +1,3 @@
-import Modal from './scripts/Modal'
 import Editor from './scripts/editor'
 
 buttonClick = (event) ->
@@ -18,7 +17,5 @@ load = ->
   toolbarElement = document.querySelector('#toolbar')
   toolbarElement.addEventListener('click', buttonClick)
   toolbarElement.addEventListener('change', changeClick)
-
-  new Modal()
 
 document.addEventListener 'DOMContentLoaded', load

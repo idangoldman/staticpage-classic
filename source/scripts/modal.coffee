@@ -1,25 +1,30 @@
 export default class Modal
-  @template: (id = 'modal-', title = 'Add Component', content = '', button_type = 'submit', button_text = 'Save') ->
+  @template: (options) ->
     """
-      <div id="#{id}" class="modal">
-        <article>
-          <h1>#{title}</h1>
-          <textarea>#{content}</textarea>
-          <button type="#{button_type}">#{button_text}</button>
+      <div id="#{options.id}" class="modal">
+        <form method="" action="">
+          <h1>#{options.title}</h1>
+          <textarea>#{options.content}</textarea>
+          <button type="submit">#{options.button_text}</button>
           <button type="reset">Cancel</button>
-        </article>
+        </form>
       </div>
     """
 
-  constructor: ->
-    @modalId = "modal-#{(new Date()).getTime()}"
-    @element = null
+  constructor: (options) ->
+    @options = Object.assign({
+      id: "modal-#{(new Date()).getTime()}",
+      title: '',
+      content: '',
+      button_text: 'Save'
+    }, options);
 
+    @element = null
     @open()
 
   open: () ->
-    document.body.insertAdjacentHTML('beforeend', Modal.template(@modalId))
-    @element = document.querySelector("##{@modalId}")
+    document.body.insertAdjacentHTML('beforeend', Modal.template(@options))
+    @element = document.querySelector("##{@options.id}")
     @element.classList.add('open')
     @element.addEventListener("click", @actions)
 
@@ -31,5 +36,4 @@ export default class Modal
   actions: (event) =>
     switch event.target.type
       when 'submit' then
-      when 'button' then
       when 'reset'  then @close()
