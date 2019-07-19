@@ -12,10 +12,11 @@ buttonClick = (event) ->
 
 changeClick = (event) ->
   Editor.add(event.target.value)
+  event.target.selectedIndex = 0
 
 load = ->
   toolbarElement = document.querySelector('#toolbar')
   toolbarElement.addEventListener('click', buttonClick)
   toolbarElement.addEventListener('change', changeClick)
 
-document.addEventListener 'DOMContentLoaded', load
+document.addEventListener('DOMContentLoaded', load)

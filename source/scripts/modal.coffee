@@ -5,7 +5,7 @@ export default class Modal
         <form method="" action="">
           <h1>#{options.title}</h1>
           <textarea>#{options.content}</textarea>
-          <button type="submit">#{options.button_text}</button>
+          <button type="submit">#{options.buttonText}</button>
           <button type="reset">Cancel</button>
         </form>
       </div>
@@ -16,7 +16,8 @@ export default class Modal
       id: "modal-#{(new Date()).getTime()}",
       title: '',
       content: '',
-      button_text: 'Save'
+      buttonText: 'Save',
+      onDone: ->
     }, options);
 
     @element = null
@@ -34,6 +35,10 @@ export default class Modal
     @element.remove();
 
   actions: (event) =>
-    switch event.target.type
-      when 'submit' then
-      when 'reset'  then @close()
+    if ['submit', 'reset'].includes(event.target.type)
+      switch event.target.type
+        when 'submit' then @options.onDone('submit', @element.querySelector('textarea').value)
+        when 'reset'  then @options.onDone('cancel')
+
+      event.preventDefault()
+      @close()

@@ -4,8 +4,8 @@ export default class Editor
   @add: (componentName) ->
     new Modal({
       title: "Add #{componentName} Component",
-      content: '',
-      button_text: 'Save'
+      buttonText: 'Save',
+      onDone: Editor.onModalDone
     })
   @edit: ->
     console.log 'editor_edit'
@@ -15,3 +15,6 @@ export default class Editor
     console.log 'editor_move_down'
   @export: ->
     console.log 'editor_export'
+
+  @onModalDone: (status, content) ->
+    console.log status, content
