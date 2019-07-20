@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "dev": "parcel source/index.njk",
-    "build": "parcel build source/index.njk"
-  },
   "devDependencies": {
     "coffeescript": "^2.4.1",
     "npm-check-updates": "^3.1.20",

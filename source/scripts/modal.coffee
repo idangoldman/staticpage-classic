@@ -34,9 +34,9 @@ export default class Modal
     @element.removeEventListener("click", @actions)
     @element.remove();
 
-  actions: (event) =>
-    if ['submit', 'reset'].includes(event.target.type)
-      switch event.target.type
+  actions: ({ target }) =>
+    if ['submit', 'reset'].includes(target.type)
+      switch target.type
         when 'submit' then @options.onDone('submit', @element.querySelector('textarea').value)
         when 'reset'  then @options.onDone('cancel')
 
