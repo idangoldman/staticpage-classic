@@ -22,9 +22,12 @@ export default class Toolbar
   onModalDone: (status, content) =>
     console.log status, content
 
-  add: (componentName) ->
+  add: (componentKey) ->
+    { name, message } = componentData[componentKey]
+
     new Modal({
-      title: "Add #{componentName} Component",
+      title: "Add #{name} Component",
+      message: message,
       buttonText: 'Save',
       onDone: @onModalDone
     })

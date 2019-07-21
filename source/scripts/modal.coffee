@@ -4,6 +4,7 @@ export default class Modal
       <div id="#{options.id}" class="modal">
         <form method="" action="">
           <h1>#{options.title}</h1>
+          <p>#{options.message}</p>
           <textarea>#{options.content}</textarea>
           <button type="submit">#{options.buttonText}</button>
           <button type="reset">Cancel</button>
@@ -16,6 +17,7 @@ export default class Modal
       id: "modal-#{(new Date()).getTime()}",
       title: '',
       content: '',
+      message: '',
       buttonText: 'Save',
       onDone: ->
     }, options);
