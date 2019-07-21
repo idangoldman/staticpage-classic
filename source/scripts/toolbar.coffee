@@ -1,4 +1,5 @@
 import Modal from './modal'
+import Events from './events'
 
 export default class Toolbar
   constructor: ->
