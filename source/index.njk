@@ -8,16 +8,12 @@
   <script type="text/javascript" src="script.coffee"></script>
 
 </head><body>
-
   <nav id="toolbar">
     <select id="add">
       <option disabled selected>Add component</option>
-      <option value="header">Header</option>
-      <option value="paragraph">Paragraph</option>
-      <option value="list">List</option>
-      <option value="image">Image</option>
-      <option value="button">Button</option>
-      <option value="iframe">Iframe</option>
+      {% for key, component in components %}
+        <option value="{{ key }}">{{ component.name }}</option>
+      {% endfor %}
     </select>
 
     <button type="button" id="edit">Edit</button>

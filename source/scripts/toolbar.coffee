@@ -1,5 +1,6 @@
 import Modal from './modal'
 import Events from './events'
+import componentsData from '../components'
 
 export default class Toolbar
   constructor: ->
@@ -23,11 +24,12 @@ export default class Toolbar
     console.log status, content
 
   add: (componentKey) ->
-    { name, message } = componentData[componentKey]
+    { name, message, placeholder } = componentsData[componentKey]
 
     new Modal({
+      message, placeholder,
+
       title: "Add #{name} Component",
-      message: message,
       buttonText: 'Save',
       onDone: @onModalDone
     })

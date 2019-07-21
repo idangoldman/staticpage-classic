@@ -1,12 +1,12 @@
 export default class Modal
-  @template: (options) ->
+  @template: ({ id, title, message, placeholder, content, buttonText }) ->
     """
-      <div id="#{options.id}" class="modal">
+      <div id="#{id}" class="modal">
         <form method="" action="">
-          <h1>#{options.title}</h1>
-          <p>#{options.message}</p>
-          <textarea>#{options.content}</textarea>
-          <button type="submit">#{options.buttonText}</button>
+          <h1>#{title}</h1>
+          <p>#{message}</p>
+          <textarea placeholder="#{placeholder}">#{content}</textarea>
+          <button type="submit">#{buttonText}</button>
           <button type="reset">Cancel</button>
         </form>
       </div>
@@ -18,6 +18,7 @@ export default class Modal
       title: '',
       content: '',
       message: '',
+      placeholder: '',
       buttonText: 'Save',
       onDone: ->
     }, options);
