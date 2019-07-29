@@ -10,8 +10,18 @@ export default class Page
     Events.on('createComponent', @onCreateComponent)
 
   onClick: ({ target }) =>
-    unless @element == target
-      target.classList.toggle('current')
+    className = 'current'
+
+    unless @currentComponent
+      @currentComponent = target
+
+    unless target == @element
+      @currentComponent.classList.remove(className)
+      target.classList.add(className)
+      @currentComponent = target
+    else
+      @currentComponent.classList.remove(className)
+      @currentComponent = null
 
   onCreateComponent: ({ tagName, content }) =>
     @currentComponent = new Component(tagName, content)
