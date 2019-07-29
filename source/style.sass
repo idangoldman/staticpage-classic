@@ -1,3 +1,8 @@
+$orange-color: #f1d6ab
+$gray-color: #f9f6f2
+$brown-color: #a0855b
+$green-color: #38470b
+
 *
   box-sizing: border-box
 
@@ -5,12 +10,13 @@
     box-sizing: inherit
 
 body
-  background-color: #f1d6ab
+  background-color: $orange-color
   display: flex
   flex-direction: column
   height: calc(100vh - 10px)
   margin: 0
   padding: 0 10px 5px
+  user-select: none
 
 @import "styles/toolbar"
 @import "styles/page"

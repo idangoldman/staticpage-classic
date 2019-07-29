@@ -1,9 +1,14 @@
 #page
-  background-color: #f9f6f2
+  background-color: $gray-color
   border-radius: 5px
-  border: 1px solid #a0855b
-  box-shadow: 1px 1px 0 3px rgba(#a0855b, 0.5)
+  border: 1px solid $brown-color
+  box-shadow: 1px 1px 0 3px rgba($brown-color, 0.5)
+  cursor: default
   height: 100%
   overflow: auto
   padding: 20px
   width: 100%
+
+  & > *
+    &.current, &:hover
+      outline: 3px solid rgba($brown-color, 0.5)

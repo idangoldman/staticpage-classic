@@ -1,37 +1,37 @@
 {
   "title": {
     "name": "Title",
-    "tag": "h1",
+    "tagName": "h1",
     "message": "Create a title by writing something clever.",
     "placeholder": "Think of a cool title"
   },
   "paragraph": {
     "name": "Paragraph",
-    "tag": "p",
+    "tagName": "p",
     "message": "Create a Paragraph by writing something interesting.",
     "placeholder": "Lemon drops cookie gummi bears biscuit tiramisu. Lemon drops gummies toffee wafer. Pastry gummies cupcake brownie pastry cake chupa chups."
   },
   "list": {
     "name": "List",
-    "tag": "ul",
+    "tagName": "ul",
     "message": "Create a List by writing each item on a new line",
     "placeholder": "Tiramisu\nCake\nCandy\nIce cream"
   },
   "image": {
     "name": "Image",
-    "tag": "img",
+    "tagName": "img",
     "message": "Create an Image by copy and pasting a url.",
     "placeholder": "https://example.com/image.png"
   },
   "link": {
     "name": "Link",
-    "tag": "a",
+    "tagName": "a",
     "message": "Create a Link by writing first the text of the link and second write the url of the link on the second (and new) line.",
     "placeholder": "Cool Link!\nhttps://example.com"
   },
   "iframe": {
     "name": "Iframe",
-    "tag": "iframe",
+    "tagName": "iframe",
     "message": "Create an Iframe by copy & pasting a url.",
     "placeholder": "https://example.com"
   }
