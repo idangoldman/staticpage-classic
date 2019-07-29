@@ -1,4 +1,4 @@
-import Events from './events'
+import Events from '/scripts/helpers/events'
 
 export default class Page
   @urlPatternTest: (url) ->

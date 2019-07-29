@@ -1,6 +1,6 @@
-import Modal from './modal'
-import Events from './events'
-import componentsData from '../components'
+import Modal from '/scripts/modal'
+import Events from '/scripts/helpers/events'
+import componentsData from '/components'
 
 export default class Toolbar
   constructor: ->
