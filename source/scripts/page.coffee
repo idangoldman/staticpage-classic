@@ -3,26 +3,19 @@ import Component from '/scripts/helpers/component'
 
 export default class Page
   constructor: ->
-    @currentComponent = null
+    @currentComponent = new Component()
+
     @element = document.querySelector('#page')
     @element.addEventListener('click', @onClick)
 
     Events.on('createComponent', @onCreateComponent)
 
   onClick: ({ target }) =>
-    className = 'current'
-
-    unless @currentComponent
-      @currentComponent = target
-
     unless target == @element
-      @currentComponent.classList.remove(className)
-      target.classList.add(className)
-      @currentComponent = target
+      @currentComponent.update(target)
     else
-      @currentComponent.classList.remove(className)
-      @currentComponent = null
+      @currentComponent.clear()
 
   onCreateComponent: ({ tagName, content }) =>
-    @currentComponent = new Component(tagName, content)
-    @element.appendChild(@currentComponent)
+    @currentComponent.create(tagName, content)
+    @element.appendChild(@currentComponent.element)
