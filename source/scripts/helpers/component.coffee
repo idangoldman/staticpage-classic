@@ -20,3 +20,15 @@ export default class Component
     if @element
       @element.classList.remove(@className)
       @element = null
+
+  getPosition: () ->
+    if @element
+      parentArray = Array.prototype.slice.call(@element.parentNode.children)
+      elementIndex = parentArray.indexOf(@element)
+
+      if elementIndex == 0
+        position = 'first'
+      else if elementIndex + 1 == parentArray.length
+        position = 'last'
+      else
+        position = 'middle'

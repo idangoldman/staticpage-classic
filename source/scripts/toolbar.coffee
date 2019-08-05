@@ -5,8 +5,12 @@ import componentsData from '/components'
 export default class Toolbar
   constructor: ->
     @element = document.querySelector('#toolbar')
+    @componentControlButtons = @element.querySelectorAll('button:not(#export)')
     @element.addEventListener('click', @onClick)
     @element.addEventListener('change', @onChange)
+
+    Events.on('selectComponent', @onSelectComponent)
+    Events.on('unselectComponent', @onUnselectComponent)
 
   onClick: ({ target }) =>
     unless ['select', 'nav'].includes(target.tagName.toLowerCase())
@@ -19,6 +23,17 @@ export default class Toolbar
   onChange: ({ target }) =>
     @create(target.value)
     target.selectedIndex = 0
+
+  onSelectComponent: (componentPosition) =>
+    for button in @componentControlButtons
+      unless (componentPosition == 'first' && button.id == 'move_up') || (componentPosition == 'last' && button.id == 'move_down')
+        button.removeAttribute('disabled')
+      else
+        button.setAttribute('disabled', true)
+
+  onUnselectComponent: () =>
+    for button in @componentControlButtons
+      button.setAttribute('disabled', true)
 
   create: (componentKey) ->
     { name, message, placeholder, tagName } = componentsData[componentKey]

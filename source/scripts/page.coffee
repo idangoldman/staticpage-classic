@@ -13,8 +13,10 @@ export default class Page
   onClick: ({ target }) =>
     unless target == @element
       @currentComponent.update(target)
+      Events.emit('selectComponent', @currentComponent.getPosition())
     else
       @currentComponent.clear()
+      Events.emit('unselectComponent')
 
   onCreateComponent: ({ tagName, content }) =>
     @currentComponent.create(tagName, content)
