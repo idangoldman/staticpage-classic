@@ -9,10 +9,11 @@ export default class Page
     @element.addEventListener('click', @onClick)
 
     Events.on('createComponent', @onCreateComponent)
+    Events.on('moveComponent', @onMoveComponent)
 
   onClick: ({ target }) =>
     unless target == @element
-      @currentComponent.update(target)
+      @currentComponent.change(target)
       Events.emit('selectComponent', @currentComponent.getPosition())
     else
       @currentComponent.clear()
@@ -21,3 +22,7 @@ export default class Page
   onCreateComponent: ({ tagName, content }) =>
     @currentComponent.create(tagName, content)
     @element.appendChild(@currentComponent.element)
+
+  onMoveComponent: (direction) =>
+    @currentComponent.move(direction)
+    Events.emit('selectComponent', @currentComponent.getPosition())

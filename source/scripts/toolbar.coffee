@@ -51,8 +51,8 @@ export default class Toolbar
   edit: ->
     console.log 'editor_edit'
   move_up: ->
-    console.log 'editor_move_up'
+    Events.emit('moveComponent', 'up')
   move_down: ->
-    console.log 'editor_move_down'
+    Events.emit('moveComponent', 'down')
   export: ->
     console.log 'editor_export'
