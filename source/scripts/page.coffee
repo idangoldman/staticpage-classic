@@ -22,6 +22,7 @@ export default class Page
   onCreateComponent: ({ tagName, content }) =>
     @currentComponent.create(tagName, content)
     @element.appendChild(@currentComponent.element)
+    Events.emit('selectComponent', @currentComponent.getPosition())
 
   onMoveComponent: (direction) =>
     @currentComponent.move(direction)
