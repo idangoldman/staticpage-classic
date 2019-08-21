@@ -1,9 +1,4 @@
 export default class Element
-  @urlPatternTest: (url) ->
-    /^(?:http(s)?:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/.test(url)
-  @splitNewLines: (content) ->
-    content.split(/\r?\n/)
-
   constructor: (tagName, content) ->
     switch tagName
       when 'h1'     then return Element.Text(tagName, content)
@@ -13,6 +8,12 @@ export default class Element
       when 'a'      then return Element.Link(content)
       when 'iframe' then return Element.Iframe(content)
       else return null
+
+  @urlPatternTest: (url) ->
+    /^(?:http(s)?:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/.test(url)
+
+  @splitNewLines: (content) ->
+    content.split(/\r?\n/)
 
   @Text: (tagName, content) ->
     tag = document.createElement(tagName)

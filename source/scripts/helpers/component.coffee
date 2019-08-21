@@ -16,8 +16,9 @@ export default class Component
     @element.classList.add @className
 
   clear: ->
-    @element.classList.remove @className
-    @element = null
+    if @element
+      @element.classList.remove @className
+      @element = null
 
   move: (direction = 'up') ->
     if direction == 'up'

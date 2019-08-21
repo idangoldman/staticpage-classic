@@ -28,6 +28,7 @@ export default class Modal
 
   open: () ->
     document.body.insertAdjacentHTML('beforeend', Modal.template(@options))
+
     @element = document.querySelector("##{@options.id}")
     @element.addEventListener("click", @actions)
     @element.classList.add('open')
