@@ -7,9 +7,9 @@ task "reinstall" do
 end
 
 task "dev" do
-  exec("parcel source/index.njk")
+  exec("yarn dev")
 end
 
 task "build" do
-  exec("parcel build source/index.njk")
+  exec("yarn build")
 end
