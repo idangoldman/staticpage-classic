@@ -6,18 +6,18 @@ export default class Component
     @element = null
 
   create: (tagName, content) ->
-    @change new Element tagName, content
+    @change new Element(tagName, content)
 
   change: (element) ->
     if @element
-      @element.classList.remove @className
+      @element.classList.remove(@className)
 
     @element = element
-    @element.classList.add @className
+    @element.classList.add(@className)
 
   clear: ->
     if @element
-      @element.classList.remove @className
+      @element.classList.remove(@className)
       @element = null
 
   move: (direction = 'up') ->
@@ -26,11 +26,11 @@ export default class Component
     else
       siblingElement = @element.nextElementSibling.nextElementSibling
 
-    @element.parentElement.insertBefore @element, siblingElement
+    @element.parentElement.insertBefore(@element, siblingElement)
 
   getPosition: () ->
-    parentArray = Array.prototype.slice.call @element.parentNode.children
-    elementIndex = parentArray.indexOf @element
+    parentArray = Array.prototype.slice.call(@element.parentNode.children)
+    elementIndex = parentArray.indexOf(@element)
 
     if elementIndex == 0
       position = 'first'
